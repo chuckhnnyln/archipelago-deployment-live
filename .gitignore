@@ -8,5 +8,5 @@ data_storage/iiiftmp/*
 data_storage/letsencrypt/*
 data_storage/ngnixcache/*
 data_storage/solrcore/*
-drupal/vendor/*
-drupal/web/*
+vendor/*
+web/*
