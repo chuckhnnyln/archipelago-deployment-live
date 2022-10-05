@@ -19,8 +19,10 @@ server {
     fastcgi_buffer_size 32k;
   
     # Please adapt to your needs
-    proxy_buffers 16 16k;  
-    proxy_buffer_size 16k;
+    proxy_buffering off; # for a single server setup (SSL termination of Varnish), where no caching is done in NGINX itself
+    proxy_buffer_size 16k; # should be enough for most PHP websites, or adjust as above
+    proxy_busy_buffers_size 24k; # essentially, proxy_buffer_size + 2 small buffers of 4k
+    proxy_buffers 64 4k; # should be enough for most PHP websites, adjust as above to get an accurate value
 
     # Cantaloupe proxypass
     location /cantaloupe/ {
